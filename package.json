@@ -1,0 +1,50 @@
+{
+  "name": "nexus-ai-br",
+  "version": "1.90.2",
+  "description": "Nexus AI BR - Framework de Agentes de IA em Python Puro com suporte a WebSocket",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "bin": {
+    "nexus-ai-br": "./bin/nexus-ai-br"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/nexus-ai-br",
+    "run": "node bin/nexus-ai-br run",
+    "chat": "node bin/nexus-ai-br chat",
+    "init": "node bin/nexus-ai-br init",
+    "list": "node bin/nexus-ai-br list",
+    "server": "node bin/nexus-ai-br ws"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "llm",
+    "openai",
+    "gpt",
+    "artificial-intelligence",
+    "python",
+    "framework",
+    "chatbot",
+    "automation",
+    "websocket",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/nexus-ai-br"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/nexus-ai-br/issues"
+  },
+  "homepage": "https://github.com/yourusername/nexus-ai-br#readme",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.8"
+  },
+  "preferGlobal": true
+}

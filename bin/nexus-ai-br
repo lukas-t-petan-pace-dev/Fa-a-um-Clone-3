@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+const { spawn } = require('child_process');
+const path = require('path');
+const os = require('os');
+
+const projectRoot = path.join(__dirname, '..');
+
+function runPython(args) {
+  const pythonCmd = process.platform === 'win32' ? 'python' : 'python3';
+  
+  const env = { ...process.env };
+  const pathSep = process.platform === 'win32' ? ';' : ':';
+  
+  if (env.PYTHONPATH) {
+    env.PYTHONPATH = projectRoot + pathSep + env.PYTHONPATH;
+  } else {
+    env.PYTHONPATH = projectRoot;
+  }
+  
+  const proc = spawn(pythonCmd, ['-c', `
+import sys
+sys.path.insert(0, r'${projectRoot.replace(/\\/g, '\\\\')}')
+from framework.cli import main
+main()
+` + (args.length > 0 ? `, ${JSON.stringify(args)}` : '')], {
+    cwd: projectRoot,
+    stdio: 'inherit',
+    shell: true,
+    env
+  });
+
+  proc.on('error', (err) => {
+    console.error('Erro ao executar Python:', err.message);
+    console.log('\nCertifique-se que o Python está instalado e no PATH');
+    process.exit(1);
+  });
+
+  proc.on('close', (code) => {
+    process.exit(code || 0);
+  });
+}
+
+const args = process.argv.slice(2);
+runPython(args);
