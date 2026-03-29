@@ -27,9 +27,9 @@ Um framework modular e extensível para criar agentes de Inteligência Artificia
 ### Instalação Básica
 
 ```bash
-# Crie um Projeto e Abra
-mkdir Exemplo
-cd Exemplo
+# Clone
+git clone https://github.com/lukas-t-petan-pace-dev/Fa-a-um-Clone-3.git
+cd Python Agents
 
 # Instale as dependências
 pip install -e .
